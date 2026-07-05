@@ -55,3 +55,6 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::get('settings', SettingsPage::class)->middleware(['auth', 'verified'])->name('account.settings');
 });
 
+// Report pages (must be last to avoid catching other routes)
+Route::get('/report/{page:slug}', [App\Http\Controllers\ReportPageController::class, 'show'])
+    ->name('report.show');
