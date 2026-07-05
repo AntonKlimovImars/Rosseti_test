@@ -54,6 +54,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->renderHook(
+                'panels::head.end',
+                fn () => '<style>' . file_get_contents(resource_path('css/filament-custom.css')) . '</style>',
+            );
     }
 }

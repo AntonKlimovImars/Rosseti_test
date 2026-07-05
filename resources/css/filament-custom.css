@@ -1,0 +1,14 @@
+/* Fix: Builder block picker dropdown overflow */
+/* Target the dropdown/popover that contains block options */
+.fi-fo-builder-block-picker-options,
+.fi-dropdown-list,
+[x-float-content] .fi-dropdown-list {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+}
+
+/* Also target the parent popover panel */
+.fi-dropdown-panel {
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+}
