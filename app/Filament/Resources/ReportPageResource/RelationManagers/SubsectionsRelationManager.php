@@ -450,40 +450,55 @@ class SubsectionsRelationManager extends RelationManager
                                     ->default('primary'),
                             ]),
 
-                        // 18. Logo Card (logo + line + 2 styled text lines)
+                        // 18. Logo Cards Row (multiple compact cards in a row)
                         Block::make('logo_card')
-                            ->label('Карточка с лого')
+                            ->label('Карточки с лого')
                             ->icon('heroicon-o-identification')
                             ->schema([
-                                Forms\Components\FileUpload::make('logo')
-                                    ->label('Лого / изображение')
-                                    ->image()
-                                    ->directory('report-images'),
-                                Forms\Components\TextInput::make('text_1')
-                                    ->label('Текст 1 (над чертой или под)')
-                                    ->required(),
-                                Forms\Components\Select::make('text_1_style')
-                                    ->label('Стиль текста 1')
-                                    ->options([
-                                        'large_bold' => 'Крупный жирный',
-                                        'normal' => 'Обычный',
-                                        'small' => 'Мелкий',
-                                        'accent' => 'Акцентный цветной',
-                                        'muted' => 'Серый приглушённый',
+                                Forms\Components\Repeater::make('cards')
+                                    ->label('Карточки')
+                                    ->schema([
+                                        Forms\Components\FileUpload::make('logo')
+                                            ->label('Лого')
+                                            ->image()
+                                            ->directory('report-images'),
+                                        Forms\Components\TextInput::make('text_1')
+                                            ->label('Текст 1')
+                                            ->required(),
+                                        Forms\Components\Select::make('text_1_style')
+                                            ->label('Стиль 1')
+                                            ->options([
+                                                'large_bold' => 'Крупный жирный',
+                                                'normal' => 'Обычный',
+                                                'small' => 'Мелкий',
+                                                'accent' => 'Акцентный цветной',
+                                                'muted' => 'Серый приглушённый',
+                                            ])
+                                            ->default('large_bold'),
+                                        Forms\Components\TextInput::make('text_2')
+                                            ->label('Текст 2'),
+                                        Forms\Components\Select::make('text_2_style')
+                                            ->label('Стиль 2')
+                                            ->options([
+                                                'large_bold' => 'Крупный жирный',
+                                                'normal' => 'Обычный',
+                                                'small' => 'Мелкий',
+                                                'accent' => 'Акцентный цветной',
+                                                'muted' => 'Серый приглушённый',
+                                            ])
+                                            ->default('muted'),
                                     ])
-                                    ->default('large_bold'),
-                                Forms\Components\TextInput::make('text_2')
-                                    ->label('Текст 2'),
-                                Forms\Components\Select::make('text_2_style')
-                                    ->label('Стиль текста 2')
+                                    ->defaultItems(3)
+                                    ->columnSpanFull(),
+                                Forms\Components\Select::make('columns')
+                                    ->label('Колонок в ряду')
                                     ->options([
-                                        'large_bold' => 'Крупный жирный',
-                                        'normal' => 'Обычный',
-                                        'small' => 'Мелкий',
-                                        'accent' => 'Акцентный цветной',
-                                        'muted' => 'Серый приглушённый',
+                                        '2' => '2',
+                                        '3' => '3',
+                                        '4' => '4',
+                                        '5' => '5',
                                     ])
-                                    ->default('muted'),
+                                    ->default('3'),
                                 Forms\Components\Select::make('color')
                                     ->label('Акцентный цвет')
                                     ->options([
