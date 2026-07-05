@@ -18,7 +18,7 @@ class Header extends Component
         $this->navLinks = [
             [
                 'title' => 'О компании',
-                'href' => '/about-company',
+                'href' => '/report/about-company',
                 'num' => '01',
                 'children' => [
                     'Портрет Группы компаний «Россети»',
@@ -32,7 +32,7 @@ class Header extends Component
             ],
             [
                 'title' => 'Управление устойчивым развитием',
-                'href' => '#sustainability',
+                'href' => '/report/sustainability',
                 'num' => '02',
                 'children' => [
                     'Трансформация повестки устойчивого развития',
@@ -43,7 +43,7 @@ class Header extends Component
             ],
             [
                 'title' => 'Вклад в развитие страны',
-                'href' => '#contribution',
+                'href' => '/report/contribution',
                 'num' => '03',
                 'children' => [
                     'Вклад в достижение национальных целей развития России и участие в национальных проектах',
@@ -52,7 +52,7 @@ class Header extends Component
             ],
             [
                 'title' => 'Забота об окружающей среде',
-                'href' => '#environment',
+                'href' => '/report/environment',
                 'num' => '04',
                 'children' => [
                     'Изменение климата',
@@ -68,7 +68,7 @@ class Header extends Component
             ],
             [
                 'title' => 'Защита прав человека',
-                'href' => '#human-rights',
+                'href' => '/report/human-rights',
                 'num' => '05',
                 'children' => [
                     'Наши кадры',
@@ -82,7 +82,7 @@ class Header extends Component
             ],
             [
                 'title' => 'Вклад в общество',
-                'href' => '#society',
+                'href' => '/report/society',
                 'num' => '06',
                 'children' => [
                     'Взаимодействие с местными сообществами',
@@ -98,7 +98,7 @@ class Header extends Component
             ],
             [
                 'title' => 'Управленческий аспект',
-                'href' => '#management',
+                'href' => '/report/governance',
                 'num' => '07',
                 'children' => [
                     'Система корпоративного управления',
@@ -110,7 +110,7 @@ class Header extends Component
             ],
             [
                 'title' => 'Приложение',
-                'href' => '#appendix',
+                'href' => '/report/appendix',
                 'num' => '08',
                 'children' => [
                     'Учёт лучших практик',

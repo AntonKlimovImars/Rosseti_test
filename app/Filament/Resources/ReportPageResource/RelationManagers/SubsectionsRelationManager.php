@@ -186,6 +186,84 @@ class SubsectionsRelationManager extends RelationManager
                                     ])
                                     ->default('normal'),
                             ]),
+
+                        // 9. Table
+                        Block::make('table')
+                            ->label('Таблица')
+                            ->icon('heroicon-o-table-cells')
+                            ->schema([
+                                Forms\Components\TextInput::make('caption')
+                                    ->label('Заголовок таблицы'),
+                                Forms\Components\Repeater::make('headers')
+                                    ->label('Заголовки столбцов')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('text')
+                                            ->label('Название столбца')
+                                            ->required(),
+                                    ])
+                                    ->defaultItems(3)
+                                    ->columnSpanFull(),
+                                Forms\Components\Repeater::make('rows')
+                                    ->label('Строки')
+                                    ->schema([
+                                        Forms\Components\Repeater::make('cells')
+                                            ->label('Ячейки')
+                                            ->schema([
+                                                Forms\Components\TextInput::make('text')
+                                                    ->label('Значение')
+                                                    ->required(),
+                                            ])
+                                            ->defaultItems(3),
+                                    ])
+                                    ->defaultItems(3)
+                                    ->columnSpanFull(),
+                            ]),
+
+                        // 10. Key Figure (highlighted number)
+                        Block::make('key_figure')
+                            ->label('Ключевая цифра')
+                            ->icon('heroicon-o-presentation-chart-bar')
+                            ->schema([
+                                Forms\Components\TextInput::make('value')
+                                    ->label('Значение (число)')
+                                    ->placeholder('725 млрд руб.')
+                                    ->required(),
+                                Forms\Components\TextInput::make('description')
+                                    ->label('Описание')
+                                    ->placeholder('инвестиции в модернизацию')
+                                    ->required(),
+                                Forms\Components\RichEditor::make('context')
+                                    ->label('Контекст (необязательный текст рядом)')
+                                    ->columnSpanFull(),
+                                Forms\Components\Select::make('style')
+                                    ->label('Стиль оформления')
+                                    ->options([
+                                        'card_blue' => 'Карточка (синий фон)',
+                                        'card_light' => 'Карточка (светлый фон)',
+                                        'inline_large' => 'Крупная цифра по центру',
+                                        'inline_left' => 'Цифра слева, текст справа',
+                                        'accent_border' => 'С акцентной полоской слева',
+                                    ])
+                                    ->default('card_blue'),
+                            ]),
+
+                        // 11. Subtitle (decorative subheading)
+                        Block::make('subtitle')
+                            ->label('Подзаголовок')
+                            ->icon('heroicon-o-bars-3-bottom-left')
+                            ->schema([
+                                Forms\Components\TextInput::make('text')
+                                    ->label('Текст подзаголовка')
+                                    ->required(),
+                                Forms\Components\Select::make('style')
+                                    ->label('Стиль')
+                                    ->options([
+                                        'default' => 'Обычный (серый, мелкий)',
+                                        'accent' => 'Акцентный (синий, с линией)',
+                                        'uppercase' => 'Капслок (маленький, трекинг)',
+                                    ])
+                                    ->default('default'),
+                            ]),
                     ])
                     ->collapsible()
                     ->blockNumbers(false)

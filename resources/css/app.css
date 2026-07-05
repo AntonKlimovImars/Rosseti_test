@@ -15,10 +15,16 @@ body::-webkit-scrollbar {
     margin: 0;
     box-sizing: border-box;
     @apply text-black-500;
+    font-family: 'PFDinTextCondPro', sans-serif;
+}
+
+/* Force no italic anywhere — brand font has no italic variant */
+em, i, .italic, blockquote p, .prose em, .prose i {
+    font-style: normal !important;
 }
 
 body {
-    @apply bg-white ;
+    @apply bg-white;
 }
 
 h1 {

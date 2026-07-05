@@ -11,8 +11,14 @@
         <x-index-page-blocks.about-long-read/>
     </section>
 
-    {{-- Blue section: About the report --}}
+    {{-- Strategic goals block --}}
+    <x-index-page-blocks.strategic-goals/>
+
+    {{-- About the report (landscape bg + principles + standards) --}}
     <x-index-page-blocks.about-report/>
+
+    {{-- Report info (GRI badges + two column text) --}}
+    <x-index-page-blocks.report-info/>
 
     {{-- Material topics (GRI) --}}
     <x-index-page-blocks.material-topics/>
