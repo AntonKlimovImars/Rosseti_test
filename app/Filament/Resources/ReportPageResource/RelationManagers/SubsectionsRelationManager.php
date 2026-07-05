@@ -449,6 +449,49 @@ class SubsectionsRelationManager extends RelationManager
                                     ])
                                     ->default('primary'),
                             ]),
+
+                        // 18. Logo Card (logo + line + 2 styled text lines)
+                        Block::make('logo_card')
+                            ->label('Карточка с лого')
+                            ->icon('heroicon-o-identification')
+                            ->schema([
+                                Forms\Components\FileUpload::make('logo')
+                                    ->label('Лого / изображение')
+                                    ->image()
+                                    ->directory('report-images'),
+                                Forms\Components\TextInput::make('text_1')
+                                    ->label('Текст 1 (над чертой или под)')
+                                    ->required(),
+                                Forms\Components\Select::make('text_1_style')
+                                    ->label('Стиль текста 1')
+                                    ->options([
+                                        'large_bold' => 'Крупный жирный',
+                                        'normal' => 'Обычный',
+                                        'small' => 'Мелкий',
+                                        'accent' => 'Акцентный цветной',
+                                        'muted' => 'Серый приглушённый',
+                                    ])
+                                    ->default('large_bold'),
+                                Forms\Components\TextInput::make('text_2')
+                                    ->label('Текст 2'),
+                                Forms\Components\Select::make('text_2_style')
+                                    ->label('Стиль текста 2')
+                                    ->options([
+                                        'large_bold' => 'Крупный жирный',
+                                        'normal' => 'Обычный',
+                                        'small' => 'Мелкий',
+                                        'accent' => 'Акцентный цветной',
+                                        'muted' => 'Серый приглушённый',
+                                    ])
+                                    ->default('muted'),
+                                Forms\Components\Select::make('color')
+                                    ->label('Акцентный цвет')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                    ])
+                                    ->default('primary'),
+                            ]),
                     ])
                     ->collapsible()
                     ->blockNumbers(false)
