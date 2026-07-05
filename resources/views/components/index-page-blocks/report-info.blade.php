@@ -3,10 +3,9 @@
         {{-- Left: Информация об утверждении --}}
         <div>
             <h3 class="text-xl font-bold text-[#1A1A1A] mb-3">Информация об утверждении и заверении Отчета</h3>
-            <div class="flex gap-2 mb-5">
-                <span class="inline-flex items-center gap-1.5 bg-[#E8F4FD] text-[#005B9C] text-xs font-bold px-3 py-1.5 rounded-md">
-                    GRI <span class="font-normal">2-5, 2-14</span>
-                </span>
+            <div class="flex items-center gap-3 mb-5">
+                <span class="inline-block bg-[#2196F3] text-white font-bold text-sm px-3 py-1.5 rounded">GRI</span>
+                <span class="text-[#6B7785] text-lg">2-5, 2-14</span>
             </div>
             <div class="text-[15px] leading-relaxed text-black-500 space-y-3">
                 <p>Отчет о социальной ответственности и корпоративном устойчивом развитии ПАО «Россети»
@@ -27,10 +26,9 @@
             {{-- Наименование Компании --}}
             <div>
                 <h3 class="text-xl font-bold text-[#1A1A1A] mb-3">Наименование Компании</h3>
-                <div class="flex gap-2 mb-5">
-                    <span class="inline-flex items-center gap-1.5 bg-[#E8F4FD] text-[#005B9C] text-xs font-bold px-3 py-1.5 rounded-md">
-                        GRI <span class="font-normal">2-1</span>
-                    </span>
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="inline-block bg-[#2196F3] text-white font-bold text-sm px-3 py-1.5 rounded">GRI</span>
+                    <span class="text-[#6B7785] text-lg">2-1</span>
                 </div>
                 <p class="text-[15px] leading-relaxed text-black-500">
                     Под терминами «Компания», «Группа», «Группа компаний», Группа «Россети», «Россети», «мы»
