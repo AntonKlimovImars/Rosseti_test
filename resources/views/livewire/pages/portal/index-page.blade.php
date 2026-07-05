@@ -20,6 +20,9 @@
     {{-- Report info (GRI badges + two column text) --}}
     <x-index-page-blocks.report-info/>
 
+    {{-- Business model (two sliders) --}}
+    <x-index-page-blocks.business-model/>
+
     {{-- Material topics (GRI) --}}
     <x-index-page-blocks.material-topics/>
 
