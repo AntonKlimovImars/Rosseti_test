@@ -287,6 +287,168 @@ class SubsectionsRelationManager extends RelationManager
                                     ])
                                     ->default('primary'),
                             ]),
+
+                        // 12. Person Card (quote + circular photo)
+                        Block::make('person_card')
+                            ->label('Карточка сотрудника')
+                            ->icon('heroicon-o-user-circle')
+                            ->schema([
+                                Forms\Components\TextInput::make('heading')
+                                    ->label('Заголовок (вопрос)')
+                                    ->placeholder('Как экологическая ответственность проявляется...'),
+                                Forms\Components\RichEditor::make('text')
+                                    ->label('Текст / цитата')
+                                    ->required()
+                                    ->columnSpanFull(),
+                                Forms\Components\FileUpload::make('photo')
+                                    ->label('Фото')
+                                    ->image()
+                                    ->directory('report-images')
+                                    ->imageResizeMode('cover')
+                                    ->imageCropAspectRatio('1:1'),
+                                Forms\Components\TextInput::make('name')
+                                    ->label('Имя')
+                                    ->required(),
+                                Forms\Components\TextInput::make('position')
+                                    ->label('Должность'),
+                                Forms\Components\Select::make('color')
+                                    ->label('Цвет заголовка')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                    ])
+                                    ->default('primary'),
+                            ]),
+
+                        // 13. Info Block (colored background)
+                        Block::make('info_block')
+                            ->label('Информационный блок')
+                            ->icon('heroicon-o-information-circle')
+                            ->schema([
+                                Forms\Components\RichEditor::make('content')
+                                    ->label('Текст')
+                                    ->required()
+                                    ->columnSpanFull(),
+                                Forms\Components\Select::make('style')
+                                    ->label('Стиль')
+                                    ->options([
+                                        'blue' => 'Синий фон',
+                                        'light' => 'Светлый фон',
+                                        'accent' => 'Голубая полоска слева',
+                                        'dark' => 'Тёмный фон',
+                                    ])
+                                    ->default('light'),
+                            ]),
+
+                        // 14. Divider
+                        Block::make('divider')
+                            ->label('Разделитель')
+                            ->icon('heroicon-o-minus')
+                            ->schema([
+                                Forms\Components\Select::make('style')
+                                    ->label('Стиль')
+                                    ->options([
+                                        'line' => 'Тонкая линия',
+                                        'thick' => 'Толстая линия',
+                                        'space' => 'Только отступ',
+                                        'dots' => 'Точки',
+                                    ])
+                                    ->default('line'),
+                            ]),
+
+                        // 15. Timeline
+                        Block::make('timeline')
+                            ->label('Таймлайн')
+                            ->icon('heroicon-o-clock')
+                            ->schema([
+                                Forms\Components\TextInput::make('title')
+                                    ->label('Заголовок таймлайна'),
+                                Forms\Components\Repeater::make('events')
+                                    ->label('События')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('year')
+                                            ->label('Год / дата')
+                                            ->required(),
+                                        Forms\Components\TextInput::make('title')
+                                            ->label('Заголовок')
+                                            ->required(),
+                                        Forms\Components\Textarea::make('description')
+                                            ->label('Описание'),
+                                    ])
+                                    ->defaultItems(3)
+                                    ->columnSpanFull(),
+                                Forms\Components\Select::make('color')
+                                    ->label('Акцентный цвет')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                    ])
+                                    ->default('primary'),
+                            ]),
+
+                        // 16. Numbered Steps
+                        Block::make('numbered_steps')
+                            ->label('Нумерованные шаги')
+                            ->icon('heroicon-o-list-bullet')
+                            ->schema([
+                                Forms\Components\TextInput::make('title')
+                                    ->label('Заголовок'),
+                                Forms\Components\Repeater::make('steps')
+                                    ->label('Шаги')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('title')
+                                            ->label('Заголовок шага')
+                                            ->required(),
+                                        Forms\Components\Textarea::make('description')
+                                            ->label('Описание'),
+                                    ])
+                                    ->defaultItems(3)
+                                    ->columnSpanFull(),
+                                Forms\Components\Select::make('color')
+                                    ->label('Акцентный цвет')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                    ])
+                                    ->default('primary'),
+                            ]),
+
+                        // 17. Cards Grid
+                        Block::make('cards_grid')
+                            ->label('Сетка карточек')
+                            ->icon('heroicon-o-rectangle-group')
+                            ->schema([
+                                Forms\Components\Repeater::make('cards')
+                                    ->label('Карточки')
+                                    ->schema([
+                                        Forms\Components\FileUpload::make('icon')
+                                            ->label('Иконка / изображение')
+                                            ->image()
+                                            ->directory('report-images'),
+                                        Forms\Components\TextInput::make('title')
+                                            ->label('Заголовок')
+                                            ->required(),
+                                        Forms\Components\Textarea::make('text')
+                                            ->label('Текст'),
+                                    ])
+                                    ->defaultItems(3)
+                                    ->columnSpanFull(),
+                                Forms\Components\Select::make('columns')
+                                    ->label('Колонок в ряду')
+                                    ->options([
+                                        '2' => '2 колонки',
+                                        '3' => '3 колонки',
+                                        '4' => '4 колонки',
+                                    ])
+                                    ->default('3'),
+                                Forms\Components\Select::make('color')
+                                    ->label('Акцентный цвет')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                    ])
+                                    ->default('primary'),
+                            ]),
                     ])
                     ->collapsible()
                     ->blockNumbers(false)
