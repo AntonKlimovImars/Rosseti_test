@@ -11,18 +11,18 @@
         style="background-image: url('/fixed/change-topics-bg.jpg');"
     >
         <div class="relative z-10">
-            <h2 class="mb-5 text-[56px] font-light uppercase leading-none md:text-[32px]">
+            <h2 class="mb-5 text-[72px] text-white font-light uppercase leading-none md:text-[32px]">
                 Изменения существенных тем
             </h2>
 
-            <div class="grid grid-cols-[280px_1fr] gap-12 md:grid-cols-1 md:gap-5">
-                <p class="text-[17px] leading-[1.35] md:text-[15px]">
+            <div class="grid grid-cols-[480px_1fr] gap-12 md:grid-cols-1 md:gap-5">
+                <p class="text-[24px] font-normal leading-[28px] md:text-[15px] text-white">
                     В отчетном году сохранен ранее применяемый методологический подход,
                     уточнен перечень существенных тем.
                 </p>
 
                 <div>
-                    <p class="mb-5 max-w-[660px] text-[17px] leading-[1.35] md:text-[15px]">
+                    <p class="mb-5 max-w-[660px] font-normal text-[24px] leading-[28px] md:text-[15px] text-white">
                         Анализ стратегических приоритетов Группы «Россети» в условиях цифровой
                         трансформации, возросшие требования к скорости, прозрачности и цифровой
                         доступности услуг выявили необходимость выделения двух существенных тем,

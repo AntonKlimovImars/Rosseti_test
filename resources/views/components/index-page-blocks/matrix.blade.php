@@ -23,6 +23,7 @@
         ],
         [
             'title' => 'Управленческий аспект',
+            'class' => '!grid !grid-cols-2',
             'color' => '#516B80',
             'items' => [
                 [10, 'Обеспечение надежного и бесперебойного электроснабжения потребителей'],
@@ -33,24 +34,6 @@
                 [15, 'Международная кооперация'],
             ],
         ],
-    ];
-
-    $charts = [
-        ['n' => 1, 'x' => '56%', 'y' => '48%', 'color' => '#00A99D'],
-        ['n' => 2, 'x' => '45%', 'y' => '48%', 'color' => '#00A99D'],
-        ['n' => 3, 'x' => '50%', 'y' => '40%', 'color' => '#00A99D'],
-        ['n' => 4, 'x' => '51%', 'y' => '62%', 'color' => '#00A99D'],
-        ['n' => 5, 'x' => '78%', 'y' => '16%', 'color' => '#2497E8'],
-        ['n' => 6, 'x' => '67%', 'y' => '25%', 'color' => '#2497E8'],
-        ['n' => 7, 'x' => '70%', 'y' => '08%', 'color' => '#2497E8'],
-        ['n' => 8, 'x' => '78%', 'y' => '22%', 'color' => '#2497E8'],
-        ['n' => 9, 'x' => '73%', 'y' => '20%', 'color' => '#2497E8'],
-        ['n' => 10, 'x' => '82%', 'y' => '06%', 'color' => '#516B80'],
-        ['n' => 11, 'x' => '46%', 'y' => '28%', 'color' => '#516B80'],
-        ['n' => 12, 'x' => '63%', 'y' => '22%', 'color' => '#516B80'],
-        ['n' => 13, 'x' => '66%', 'y' => '22%', 'color' => '#516B80'],
-        ['n' => 14, 'x' => '66%', 'y' => '31%', 'color' => '#516B80'],
-        ['n' => 15, 'x' => '33%', 'y' => '33%', 'color' => '#516B80'],
     ];
 
     $topTables = [
@@ -81,25 +64,25 @@
     ];
 @endphp
 
-<section class="container py-10 text-[#4A4A4A]">
+<section class="container py-10 text-[#4A4A4A] mb-28">
     <div class="grid grid-cols-[1fr_0.95fr] gap-6 lg:grid-cols-1">
         <div>
             <h2 class="mb-4 text-[34px] leading-none uppercase  lg:text-[28px] md:text-[24px]">
                 Матрица существенных тем
             </h2>
 
-            <div class="overflow-hidden rounded-b-[14px]">
-                <div class="rounded-t-[14px] bg-white px-6 pb-6">
+            <div class="rounded-b-[14px] relative">
+                <div class="rounded-2xl bg-white px-6 pb-6 rounded-3xl">
                     <img src="/fixed/matrix-chart.png" alt="">
 
                     <div class="grid grid-cols-2 gap-x-8 gap-y-5 text-[12px] leading-[1.15] md:grid-cols-1">
                         @foreach($legendGroups as $group)
                             <div class="{{ $loop->last ? 'col-span-2 md:col-span-1' : '' }}">
-                                <h4 class="mb-3 font-medium text-lg" style="color: {{ $group['color'] }}">
+                                <h4 class="mb-3 font-semibold text-lg" style="color: {{ $group['color'] }}">
                                     {{ $group['title'] }}
                                 </h4>
 
-                                <div class="grid grid-cols-2 gap-x-6 gap-y-2 {{ $loop->last ? '' : 'md:grid-cols-1' }}">
+                                <div class="flex flex-col {{$group['class'] ?? ''}} gap-x-6 gap-y-2 {{ $loop->last ? '' : 'md:grid-cols-1' }}">
                                     @foreach($group['items'] as [$number, $text])
                                         <div class="flex gap-2">
                                             <span
@@ -108,7 +91,7 @@
                                             >
                                                 {{ $number }}
                                             </span>
-                                            <span>{{ $text }}</span>
+                                            <span class="text-base leading-[16px]">{{ $text }}</span>
                                         </div>
                                     @endforeach
                                 </div>
@@ -117,11 +100,11 @@
                     </div>
                 </div>
 
-                <div class="flex items-start gap-4 rounded-b-[14px] bg-[#2497E8] px-6 py-5 text-[14px] leading-[1.35] text-white">
+                <div class="flex items-start gap-4 rounded-b-[14px] bg-blue-400 absolute -bottom-[80px] -z-[1] px-6 pb-5 pt-12 text-[14px] leading-[1.35] text-white">
                     <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white text-[11px] text-[#2497E8]">
                         ✓
                     </span>
-                    <p>
+                    <p class="text-white">
                         Внутренние заинтересованные стороны оценили существенность заявленных тем Компании
                         в среднем на 10% выше внешних заинтересованных сторон.
                     </p>

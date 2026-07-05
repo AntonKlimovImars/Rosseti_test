@@ -13,15 +13,8 @@
     <aside class="max-w-[263px] lg:hidden">
         <div class="sticky top-20">
             <h3 class="mb-4 text-[28px] uppercase ">Навигация</h3>
-            <nav class="space-y-2 mb-10">
-                @foreach($page->content as $topic)
-                    @if($topic['data']['title'] ?? null)
-                        <a href="#{{Str::slug($topic['data']['title'])}}"
-                           class="block hover:underline text-black-400 text-nowrap">
-                            {{$topic['data']['title']}}
-                        </a>
-                    @endif
-                @endforeach
+            <nav class="space-y-2 mb-10" id="toc-nav">
+                <!-- TOC will be populated by JavaScript -->
             </nav>
         </div>
     </aside>
@@ -41,10 +34,34 @@
 <script>
     let tocObserver = null;
 
+    function buildToc() {
+        const $tocNav = document.getElementById('toc-nav');
+        if (!$tocNav) return;
+
+        const $headings = document.querySelectorAll('main article h2, main article h3');
+        $tocNav.innerHTML = '';
+
+        $headings.forEach((heading, index) => {
+            if (!heading.id) {
+                const text = heading.textContent.trim();
+                heading.id = 'heading-' + index + '-' + text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+            }
+
+            const link = document.createElement('a');
+            link.href = '#' + heading.id;
+            link.textContent = heading.textContent.trim();
+            link.className = 'block hover:underline text-black-400 text-nowrap';
+            if (heading.tagName === 'H3') {
+                link.classList.add('pl-4', 'text-sm');
+            }
+            $tocNav.appendChild(link);
+        });
+    }
+
     function setupTocObserver() {
         if (tocObserver) tocObserver.disconnect();
 
-        const $tocLinks = document.querySelectorAll('aside nav a');
+        const $tocLinks = document.querySelectorAll('#toc-nav a');
 
         tocObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -62,14 +79,20 @@
             threshold: 0
         });
 
-        document.querySelectorAll('main h2[id]').forEach(h2 => {
-            tocObserver.observe(h2);
+        document.querySelectorAll('main article h2[id], main article h3[id]').forEach(heading => {
+            tocObserver.observe(heading);
         });
     }
 
-    window.addEventListener('load', setupTocObserver);
+    window.addEventListener('load', () => {
+        buildToc();
+        setupTocObserver();
+    });
 
     document.addEventListener('livewire:navigated', () => {
-        setTimeout(setupTocObserver, 100);
+        setTimeout(() => {
+            buildToc();
+            setupTocObserver();
+        }, 100);
     });
 </script>
