@@ -1,8 +1,12 @@
 {{-- GRI Reference Block --}}
-<div class="inline-flex items-center gap-2 bg-[#E8F4FD] text-[#005B9C] text-sm font-medium px-4 py-2 rounded-lg">
-    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-    </svg>
-    {{ $data['codes'] }}
+<div class="flex flex-wrap gap-2">
+    @foreach(explode(',', $data['codes']) as $code)
+        <span class="inline-flex items-center gap-1.5 bg-[#E8F4FD] text-[#00355A] text-xs font-bold px-3 py-1.5 rounded-md">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m9 12 2 2 4-4"/>
+            </svg>
+            {{ trim($code) }}
+        </span>
+    @endforeach
 </div>

@@ -137,6 +137,15 @@ class SubsectionsRelationManager extends RelationManager
                                         'h4' => 'H4 — Маленький',
                                     ])
                                     ->default('h2'),
+                                Forms\Components\Select::make('color')
+                                    ->label('Цвет')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                        'dark' => 'Чёрный',
+                                        'white' => 'Белый (для тёмных фонов)',
+                                    ])
+                                    ->default('primary'),
                             ]),
 
                         // 7. GRI Reference
@@ -245,6 +254,13 @@ class SubsectionsRelationManager extends RelationManager
                                         'accent_border' => 'С акцентной полоской слева',
                                     ])
                                     ->default('card_blue'),
+                                Forms\Components\Select::make('color')
+                                    ->label('Акцентный цвет')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                    ])
+                                    ->default('primary'),
                             ]),
 
                         // 11. Subtitle (decorative subheading)
@@ -259,10 +275,17 @@ class SubsectionsRelationManager extends RelationManager
                                     ->label('Стиль')
                                     ->options([
                                         'default' => 'Обычный (серый, мелкий)',
-                                        'accent' => 'Акцентный (синий, с линией)',
+                                        'accent' => 'Акцентный (с линией)',
                                         'uppercase' => 'Капслок (маленький, трекинг)',
                                     ])
                                     ->default('default'),
+                                Forms\Components\Select::make('color')
+                                    ->label('Акцентный цвет')
+                                    ->options([
+                                        'primary' => 'Тёмно-синий (#00355A)',
+                                        'accent' => 'Голубой (#2196F3)',
+                                    ])
+                                    ->default('primary'),
                             ]),
                     ])
                     ->collapsible()

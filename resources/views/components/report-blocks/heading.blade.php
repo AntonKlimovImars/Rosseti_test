@@ -1,11 +1,18 @@
 {{-- Heading Block --}}
 @php
     $level = $data['level'] ?? 'h2';
-    $classes = match($level) {
-        'h2' => 'text-3xl font-bold text-[#1A1A1A] mb-6',
-        'h3' => 'text-2xl font-bold text-[#1A1A1A] mb-4',
-        'h4' => 'text-xl font-semibold text-[#1A1A1A] mb-3',
-        default => 'text-3xl font-bold text-[#1A1A1A] mb-6',
+    $color = match($data['color'] ?? 'primary') {
+        'primary' => 'text-[#00355A]',
+        'accent' => 'text-[#2196F3]',
+        'dark' => 'text-[#1A1A1A]',
+        'white' => 'text-white',
+        default => 'text-[#00355A]',
+    };
+    $size = match($level) {
+        'h2' => 'text-3xl font-bold',
+        'h3' => 'text-2xl font-bold',
+        'h4' => 'text-xl font-bold',
+        default => 'text-3xl font-bold',
     };
 @endphp
-<{{ $level }} class="{{ $classes }}">{{ $data['content'] }}</{{ $level }}>
+<{{ $level }} class="{{ $size }} {{ $color }}">{{ $data['content'] }}</{{ $level }}>
