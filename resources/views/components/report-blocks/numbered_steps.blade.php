@@ -1,8 +1,8 @@
 {{-- Numbered Steps Block --}}
 @php
-    $colorHex = match($data['color'] ?? 'primary') {
-        'accent' => '#2196F3',
-        default => '#00355A',
+    $colorHex = match($data['color'] ?? 'accent') {
+        'primary' => '#00355A',
+        default => '#2196F3',
     };
     $iconStyle = $data['icon_style'] ?? 'numbers';
     $connected = $data['connected'] ?? false;
