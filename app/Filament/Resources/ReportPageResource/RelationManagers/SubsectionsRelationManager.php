@@ -263,7 +263,7 @@ class SubsectionsRelationManager extends RelationManager
                                         Forms\Components\Repeater::make('cells')
                                             ->label('Ячейки')
                                             ->schema([
-                                                Forms\Components\TextInput::make('text')
+                                                Forms\Components\RichEditor::make('text')
                                                     ->label('Значение')
                                                     ->required(),
                                             ])
