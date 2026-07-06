@@ -23,6 +23,13 @@ em, i, .italic, blockquote p, .prose em, .prose i {
     font-style: normal !important;
 }
 
+/* Links in report content should not be bold by default */
+.prose a, .report-content a {
+    font-weight: normal !important;
+    text-decoration: underline;
+    color: #2196F3;
+}
+
 body {
     @apply bg-white;
 }
