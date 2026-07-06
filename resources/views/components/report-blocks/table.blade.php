@@ -24,7 +24,7 @@
             <thead>
                 <tr class="{{ $headerBg }}">
                     @foreach($data['headers'] as $header)
-                        <th class="{{ $cellPadding }} text-left font-bold">{{ $header['text'] }}</th>
+                        <th class="{{ $cellPadding }} text-left font-bold" @if($headerStyle === 'blue') style="color: #fff;" @endif>{{ $header['text'] }}</th>
                     @endforeach
                 </tr>
             </thead>
