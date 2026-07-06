@@ -259,7 +259,7 @@ class SubsectionsRelationManager extends RelationManager
                                             ->default(false),
                                         Forms\Components\TextInput::make('accent_text')
                                             ->label('Текст акцентной строки')
-                                            ->visible(fn (Forms\Get $get) => $get('is_accent')),
+                                            ->visible(fn ($get) => $get('is_accent')),
                                         Forms\Components\Repeater::make('cells')
                                             ->label('Ячейки')
                                             ->schema([
@@ -268,7 +268,7 @@ class SubsectionsRelationManager extends RelationManager
                                                     ->required(),
                                             ])
                                             ->defaultItems(3)
-                                            ->visible(fn (Forms\Get $get) => !$get('is_accent')),
+                                            ->visible(fn ($get) => !$get('is_accent')),
                                     ])
                                     ->defaultItems(3)
                                     ->columnSpanFull(),
